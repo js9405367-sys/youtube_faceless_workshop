@@ -52,7 +52,7 @@ const CONFIG = {
 
     Set upiId and upiPayeeName before publishing. */
   paymentMethod: "upi",
-  upiId: "js9405367@oksbi",
+  upiId: "Sharnoor440@gmail.com",
   upiPayeeName: "Faceless YouTube Workshop",
 
   /* ---------- Video ----------
@@ -69,8 +69,8 @@ const CONFIG = {
   ratingSource: "",                                // e.g. "Google Reviews" — say where it comes from
 
   /* ---------- Testimonials ----------
-     Every entry below is a PLACEHOLDER for development.
-     Replace with real ones or set showTestimonials to false.     */
+      Every entry below is a PLACEHOLDER for development.
+      Replace with real ones or set showTestimonials to false.     */
   showTestimonials: false,
   testimonials: [],
 
