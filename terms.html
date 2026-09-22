@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Terms & conditions — Workshop</title>
+<meta name="description" content="The terms that apply when you register for the workshop.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23000'/><path d='M38 30l30 20-30 20z' fill='%23ffc42e'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Inter:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav__inner">
+    <a class="brand" href="index.html"><span class="brand__mark" aria-hidden="true">&#9654;</span><span data-cfg="brandName">Workshop</span></a>
+    <a href="index.html" style="font-size:.88rem;font-weight:600;text-decoration:none;color:#54545a">&larr; Back to workshop</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="page-head legal">
+    <h1>Terms &amp; conditions</h1>
+    <p class="updated">Last updated: 20 September 2026</p>
+  </div>
+  <div class="legal">
+    <p>These terms apply when you register for the Faceless YouTube Workshop.</p>
+
+    <h2>What you are buying</h2>
+    <p>A seat in a live, online workshop of the length and at the time stated on the registration page. The session is delivered over Zoom. Timings are approximate and may move slightly to accommodate questions.</p>
+
+    <h2>No income guarantee</h2>
+    <p>This is an educational workshop. Nothing in it is a promise, guarantee or projection of earnings. Results depend on your own effort, skill, market conditions and factors outside our control. Any figures mentioned describe what has happened for specific people and should not be read as typical or expected.</p>
+
+    <h2>Not affiliated with YouTube</h2>
+    <p>We are not affiliated with, endorsed by, or sponsored by YouTube, Google or any of their group companies. Platform rules and monetisation requirements are set by YouTube and can change at any time.</p>
+
+    <h2>Your responsibilities</h2>
+    <ul>
+      <li>Give accurate contact details — the joining link goes to the email and number you enter.</li>
+      <li>Arrange your own internet connection and device for the session.</li>
+      <li>Do not record, re-stream, resell or redistribute the session or any material we share.</li>
+    </ul>
+
+    <h2>Changes and cancellation by us</h2>
+    <p>If we have to move the session, registered participants are told by email and can attend the new date or request a refund under the refund policy.</p>
+
+    <h2>Payments</h2>
+    <p>Payments are made by UPI to the payment ID shown at checkout. The price shown at checkout is the amount requested, in Indian Rupees, inclusive of applicable taxes unless stated otherwise. A seat is confirmed only after we verify the UTR/payment reference.</p>
+
+    <h2>Intellectual property</h2>
+    <p>The workshop content, slides and any materials remain our property and are licensed to you for personal use only.</p>
+
+    <h2>Liability</h2>
+    <p>To the extent permitted by law, our liability in connection with the workshop is limited to the amount you paid for it.</p>
+
+    <h2>Governing law</h2>
+    <p>These terms are governed by the laws of India.</p>
+
+    <h2>Contact</h2>
+    <p>Email <a href="#" data-cfg-link="email"></a> with any question about these terms.</p>
+  </div>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__grid">
+      <div class="foot__about">
+        <a class="brand" href="index.html"><span class="brand__mark" aria-hidden="true">&#9654;</span><span data-cfg="brandName">Workshop</span></a>
+        <p data-cfg="tagline"></p>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#" data-cfg-link="email"></a></li>
+          <li><a href="#" data-cfg-link="whatsapp">WhatsApp</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="terms.html">Terms &amp; conditions</a></li>
+          <li><a href="privacy.html">Privacy policy</a></li>
+          <li><a href="refund.html">Refund &amp; cancellation</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot__legal">
+      <span>&copy; <span id="year"></span> <span data-cfg="businessName"></span></span>
+      <span>Not affiliated with, or endorsed by, YouTube or Google.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script>
+(function(){
+  var C = window.CONFIG || {};
+  Array.prototype.forEach.call(document.querySelectorAll("[data-cfg]"),function(el){
+    var v=C[el.getAttribute("data-cfg")]; if(v) el.textContent=v;
+  });
+  Array.prototype.forEach.call(document.querySelectorAll("[data-cfg-link]"),function(el){
+    var t=el.getAttribute("data-cfg-link");
+    if(t==="email"&&C.supportEmail){el.href="mailto:"+C.supportEmail;el.textContent=C.supportEmail;}
+    else if(t==="whatsapp"){ if(C.whatsappNumber) el.href="https://wa.me/"+C.whatsappNumber; else el.remove(); }
+    else if(t==="phone"&&C.supportPhone){el.href="tel:"+String(C.supportPhone).replace(/\s/g,"");el.textContent=C.supportPhone;}
+  });
+  var y=document.getElementById("year"); if(y) y.textContent=new Date().getFullYear();
+  var h=document.getElementById("hours"); if(h&&C.supportHours) h.textContent=C.supportHours;
+})();
+</script>
+</body>
+</html>

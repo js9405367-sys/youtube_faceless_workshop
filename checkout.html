@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Register — Faceless YouTube Workshop</title>
+<meta name="description" content="Register for the live workshop and pay securely by UPI.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23000'/><path d='M38 30l30 20-30 20z' fill='%23ffc42e'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Inter:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page-grey">
+
+<header class="nav">
+  <div class="wrap nav__inner">
+    <a class="brand" href="index.html">
+      <span class="brand__mark" aria-hidden="true">▶</span>
+      <span data-cfg="brandName">Workshop</span>
+    </a>
+    <a href="index.html" style="font-size:.88rem;font-weight:600;text-decoration:none;color:#54545a">← Back</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="page-head">
+    <h1>Your details</h1>
+    <p>We use these to send your joining link. Pay ₹29 directly in your UPI app, then send the payment reference for verification.</p>
+  </div>
+
+  <div class="checkout">
+
+    <!-- ===== form ===== -->
+    <section class="panel">
+      <h2>Registration</h2>
+      <p class="panel__sub">All three fields are required.</p>
+
+      <div class="notice" id="setupNotice" hidden>
+        <b>Payment is not configured yet</b>
+        Add your UPI ID to <code>upiId</code> in <code>js/config.js</code> before publishing. Until then this button stays disabled.
+      </div>
+
+      <form id="regForm" novalidate>
+        <div class="fieldset">
+          <div class="field" id="f-name">
+            <label for="name">Full name</label>
+            <input id="name" name="name" type="text" autocomplete="name" placeholder="As you'd like it on the certificate" required>
+            <p class="msg" id="m-name">Enter your full name.</p>
+          </div>
+
+          <div class="field" id="f-email">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com" required>
+            <p class="msg" id="m-email">Enter a valid email address — your joining link goes here.</p>
+          </div>
+
+          <div class="field field--phone" id="f-phone">
+            <label for="phone">Phone (WhatsApp)</label>
+            <div class="wrap-inline">
+              <span class="cc">+91</span>
+              <input id="phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel-national" maxlength="10" placeholder="10-digit number" required>
+            </div>
+            <p class="msg" id="m-phone">Enter a 10-digit Indian mobile number.</p>
+          </div>
+        </div>
+        <p class="hint">We send the joining link by email and WhatsApp. No marketing calls.</p>
+
+        <!-- coupon -->
+        <div id="couponWrap" hidden>
+          <label for="coupon" style="display:block;font-size:.85rem;font-weight:700;margin-top:22px">Coupon code (optional)</label>
+          <div class="coupon">
+            <input id="coupon" type="text" autocomplete="off" placeholder="Enter code">
+            <button class="btn btn--ghost" type="button" id="applyCoupon">Apply</button>
+          </div>
+          <p class="coupon__msg" id="couponMsg"></p>
+        </div>
+
+        <button class="btn btn--gold btn--lg btn--block" type="submit" id="payBtn" style="margin-top:24px">
+          Pay by UPI <span data-cfg="priceNow">₹29</span>
+        </button>
+
+        <div class="methods" id="methods">
+          <span>UPI app</span><span>PhonePe</span><span>Google Pay</span><span>Paytm</span>
+        </div>
+
+        <p class="fineprint">
+          By continuing you agree to our
+          <a href="terms.html">terms</a>, <a href="privacy.html">privacy policy</a>
+          and <a href="refund.html">refund policy</a>.
+        </p>
+      </form>
+    </section>
+
+    <!-- ===== order summary ===== -->
+    <aside class="panel" aria-label="Order summary">
+      <h2>Order summary</h2>
+      <p class="panel__sub">One seat in the live session.</p>
+
+      <div class="summary__item">
+        <span class="badge" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.2" stroke-linecap="round"><path d="M8 5l11 7-11 7z"/></svg>
+        </span>
+        <span>
+          <b data-cfg="workshopName">Workshop</b>
+          <span id="sumWhen"></span>
+        </span>
+      </div>
+
+      <div class="summary__row"><span>Workshop fee</span><span id="sumBase"></span></div>
+      <div class="summary__row" id="sumDiscountRow" hidden><span>Discount</span><span class="off" id="sumDiscount"></span></div>
+      <div class="summary__row total"><span>Total payable</span><span id="sumTotal"></span></div>
+
+      <div class="secure">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a7f5a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2.5"/><path d="M8 10V7a4 4 0 018 0v3"/></svg>
+        <span>Your UPI PIN is entered only in your UPI app. This website never sees or stores it.</span>
+      </div>
+
+      <div class="secure">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#54545a" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16v12H4z"/><path d="M4 8l8 5 8-5"/></svg>
+        <span>Questions before paying? <a href="#" data-cfg-link="email">Email support</a> or <a href="#" data-cfg-link="whatsapp">message us on WhatsApp</a>.</span>
+      </div>
+
+      <div class="secure" id="upiNextStep" hidden>
+        <div>
+          <b>After you pay</b>
+          <span style="display:block;margin-top:4px">Return here and send your payment screenshot, UTR, and registration details.</span>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:10px">
+            <a class="btn btn--primary" id="upiConfirmLink" href="#" target="_blank" rel="noopener">Send on WhatsApp</a>
+            <a class="btn btn--ghost" id="upiEmailLink" href="#">Send by email</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="secure">
+        <span>To help us identify your payment, pay from your own UPI account and keep the UTR/reference shown in your UPI app.</span>
+      </div>
+    </aside>
+
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__legal">
+      <span>© <span id="year"></span> <span data-cfg="businessName"></span></span>
+      <span>
+        <a href="terms.html">Terms</a> ·
+        <a href="privacy.html">Privacy</a> ·
+        <a href="refund.html">Refunds</a> ·
+        <a href="contact.html">Contact</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/checkout.js" defer></script>
+</body>
+</html>

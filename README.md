@@ -1,5 +1,3 @@
-# youtube_faceless_workshop
-Master the art of running automated, faceless YouTube channels. Includes starter scripts, video editing automation workflows, AI prompt templates, and resource guides from the workshop.
 # Workshop landing page
 
 A mobile-first landing page and registration flow for a paid live online workshop.
