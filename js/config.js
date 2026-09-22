@@ -52,7 +52,7 @@ const CONFIG = {
 
     Set upiId and upiPayeeName before publishing. */
   paymentMethod: "upi",
-  upiId: "Sharnoor440@gmail.com",
+  upiId: "6398299060@ybl",
   upiPayeeName: "Faceless YouTube Workshop",
 
   /* ---------- Video ----------
